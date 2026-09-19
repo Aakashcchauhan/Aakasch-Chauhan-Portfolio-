@@ -91,11 +91,11 @@ export default function Hero() {
                 }`}
               >
                 <dt className="sr-only">{stat.label}</dt>
-                <dd>
-                  <span className="block font-display text-4xl font-extrabold text-lime">
+                <dd className="md:flex md:items-baseline md:justify-center md:gap-3">
+                  <span className="block font-display text-4xl font-extrabold text-lime md:inline">
                     {stat.value}
                   </span>
-                  <span className="label mt-2 block">{stat.label}</span>
+                  <span className="label mt-2 block md:mt-0 md:inline">{stat.label}</span>
                 </dd>
               </div>
             ))}

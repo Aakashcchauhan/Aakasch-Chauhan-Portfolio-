@@ -52,6 +52,22 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateX(-30px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        slideUp: {
+          "0%": { opacity: "0", transform: "translateY(100%)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideInRight: {
+          "0%": { opacity: "0", transform: "translateX(100%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        menuItemUp: {
+          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        menuItemRight: {
+          "0%": { opacity: "0", transform: "translateX(40px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
       },
       animation: {
         marquee: "marquee 28s linear infinite",
@@ -60,6 +76,10 @@ module.exports = {
         fadeIn: "fadeIn 0.6s ease-out both",
         scaleIn: "scaleIn 0.6s ease-out both",
         slideInLeft: "slideInLeft 0.6s ease-out both",
+        slideUp: "slideUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both",
+        slideInRight: "slideInRight 0.45s cubic-bezier(0.16, 1, 0.3, 1) both",
+        menuItemUp: "menuItemUp 0.4s ease-out both",
+        menuItemRight: "menuItemRight 0.4s ease-out both",
       },
     },
   },

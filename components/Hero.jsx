@@ -82,12 +82,12 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-16 grid grid-cols-2 gap-px border-y border-hairline bg-hairline">
+          <dl className="mt-16 grid grid-cols-2 gap-px border-y border-hairline bg-hairline md:grid-cols-3">
             {heroStats.map((stat, idx) => (
               <div
                 key={stat.label}
                 className={`bg-ink px-4 py-6 text-center sm:px-5 ${
-                  idx === 2 ? "col-span-2" : ""
+                  idx === 2 ? "col-span-2 md:col-span-1" : ""
                 }`}
               >
                 <dt className="sr-only">{stat.label}</dt>

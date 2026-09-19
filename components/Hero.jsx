@@ -82,9 +82,14 @@ export default function Hero() {
             </a>
           </div>
 
-          <dl className="mt-16 grid grid-cols-2 gap-px border-t border-hairline bg-hairline sm:grid-cols-3">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="bg-ink px-1 pt-6 sm:px-5">
+          <dl className="mt-16 grid grid-cols-2 gap-px border-y border-hairline bg-hairline">
+            {heroStats.map((stat, idx) => (
+              <div
+                key={stat.label}
+                className={`bg-ink px-4 py-6 text-center sm:px-5 ${
+                  idx === 2 ? "col-span-2" : ""
+                }`}
+              >
                 <dt className="sr-only">{stat.label}</dt>
                 <dd>
                   <span className="block font-display text-4xl font-extrabold text-lime">

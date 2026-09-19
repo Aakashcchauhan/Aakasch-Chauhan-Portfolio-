@@ -1,0 +1,284 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell-x: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  * {
+    @apply border-hairline;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink text-white antialiased font-sans;
+  }
+
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ccff00;
+    outline-offset: 3px;
+  }
+
+  input,
+  textarea {
+    @apply bg-transparent;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: theme("maxWidth.shell");
+    margin-inline: auto;
+    padding-inline: var(--shell-x);
+  }
+
+  /* Heavy condensed display lockup used for every section title */
+  .display {
+    @apply font-display font-extrabold uppercase leading-[0.88] tracking-[-0.02em] break-words;
+    font-stretch: 108%;
+  }
+
+  .display-xl {
+    @apply display;
+    font-size: clamp(2.5rem, 5.2vw, 7rem);
+  }
+
+  .display-lg {
+    @apply display;
+    font-size: clamp(2rem, 3.8vw, 4.5rem);
+  }
+
+  .display-md {
+    @apply display;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+  }
+
+  /* Small mono strings: nav, eyebrows, tags, buttons */
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-label text-muted;
+  }
+
+  .rule {
+    @apply h-px w-full bg-hairline;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-[3px] border border-hairline bg-white/[0.02] px-3 py-1.5 text-[13px] text-white/80;
+  }
+
+  .tag-mono {
+    @apply inline-flex items-center rounded-[2px] border border-hairline px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-muted;
+  }
+
+  .btn-solid {
+    @apply inline-flex items-center justify-center gap-2.5 bg-lime px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-label text-ink transition-colors duration-200 hover:bg-white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2.5 border border-white/25 px-7 py-4 font-mono text-[11px] font-bold uppercase tracking-label text-white transition-colors duration-200 hover:border-lime hover:text-lime;
+  }
+
+  .link-quiet {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-label text-muted transition-colors duration-200 hover:text-lime;
+  }
+
+  /* Faint film grain that sits over the flat black, matching the comps */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-body {
+    @apply text-[15px] leading-[1.75] text-white/70 sm:text-base;
+  }
+
+  .measure {
+    max-width: 62ch;
+  }
+
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+}
+
+/* ─── Scroll-triggered reveal ─── */
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Stagger children inside a reveal container */
+.reveal-stagger > * {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-stagger.revealed>*:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(5) {
+  transition-delay: 320ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(6) {
+  transition-delay: 400ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(7) {
+  transition-delay: 480ms;
+}
+
+.reveal-stagger.revealed>*:nth-child(8) {
+  transition-delay: 560ms;
+}
+
+/* ─── Animated noise grain overlay ─── */
+@keyframes grain-drift {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -3%);
+  }
+
+  20% {
+    transform: translate(3%, 1%);
+  }
+
+  30% {
+    transform: translate(-1%, 4%);
+  }
+
+  40% {
+    transform: translate(4%, -2%);
+  }
+
+  50% {
+    transform: translate(-3%, 3%);
+  }
+
+  60% {
+    transform: translate(2%, -4%);
+  }
+
+  70% {
+    transform: translate(-4%, 1%);
+  }
+
+  80% {
+    transform: translate(1%, -3%);
+  }
+
+  90% {
+    transform: translate(3%, 2%);
+  }
+}
+
+.grain::before {
+  animation: grain-drift 8s steps(10) infinite;
+}
+
+/* ─── Hero entrance stagger ─── */
+.hero-stagger>* {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.hero-stagger>*:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-stagger>*:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.hero-stagger>*:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.hero-stagger>*:nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+.hero-stagger>*:nth-child(5) {
+  animation-delay: 0.7s;
+}
+
+.hero-stagger>*:nth-child(6) {
+  animation-delay: 0.85s;
+}
+
+/* ─── Custom cursor ─── */
+@media (pointer: fine) {
+  html, a, button, [role="tab"], input, textarea {
+    cursor: auto;
+  }
+}
+
+/* ─── Lime focus glow for contact form fields ─── */
+input:focus,
+textarea:focus {
+  border-color: #CCFF00 !important;
+  box-shadow: 0 2px 12px -4px rgba(204, 255, 0, 0.3);
+}
+
+/* ─── Tab panel fade transition ─── */
+.tab-fade-enter {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-stagger>* {
+    opacity: 1;
+    transform: none;
+  }
+}

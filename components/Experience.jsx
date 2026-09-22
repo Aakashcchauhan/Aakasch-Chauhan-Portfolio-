@@ -11,7 +11,7 @@ export default function Experience() {
     <Section id="experience" tone="panel">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
         <div className="min-w-0 lg:col-span-5">
-          <Eyebrow index="06">Education &amp; Training</Eyebrow>
+          <Eyebrow index="05">Education &amp; Training</Eyebrow>
           <h2 className="display-lg">
             <span className="block text-white">Keep</span>
             <span className="block text-lime">Growing.</span>
@@ -71,6 +71,15 @@ export default function Experience() {
                     <p className="mt-4 text-[14px] leading-relaxed text-white/75 measure">
                       {item.description}
                     </p>
+                  )}
+                  {item.skills && item.skills.length > 0 && (
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {item.skills.map((skill) => (
+                        <li key={skill} className="tag-mono">
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </li>
               ))}

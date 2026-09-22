@@ -28,11 +28,11 @@ const mono = JetBrains_Mono({
 export const metadata = {
   title: "Aakash Chauhan — Full Stack / Software Engineer",
   description:
-    "I build thoughtful products from the first interface to the last API — turning complex ideas into fast, useful software.",
+    "I build full-stack web applications, AI-powered systems, and developer tools — from responsive interfaces to reliable backend services.",
   openGraph: {
     title: "Aakash Chauhan — Full Stack / Software Engineer",
     description:
-      "Portfolio of Aakash Chauhan: web products, automation tools and API-led platforms.",
+      "Portfolio of Aakash Chauhan: full-stack web applications, AI-powered systems, and developer tools.",
     type: "website",
   },
 };
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${display.variable} ${body.variable} ${mono.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <ScrollProgress />
         <CustomCursor />
         {children}

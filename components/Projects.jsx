@@ -145,7 +145,7 @@ export default function Projects() {
     <Section id="projects" tone="panel">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
-          <Eyebrow index="04">Projects</Eyebrow>
+          <Eyebrow index="06">Projects</Eyebrow>
           <SplitTitle top="Selected" bottom="Builds." />
         </div>
         <span className="label">{projects.length} / {projects.length}</span>

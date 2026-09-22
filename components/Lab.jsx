@@ -27,7 +27,7 @@ export default function Lab() {
     <Section id="lab">
       <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
         <div>
-          <Eyebrow index="05">Build lab</Eyebrow>
+          <Eyebrow index="04">Build lab</Eyebrow>
           <h2 className="display-lg">
             <span className="block text-white">How I</span>
             <span className="block text-lime">Work.</span>

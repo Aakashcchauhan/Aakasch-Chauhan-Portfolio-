@@ -15,6 +15,26 @@ export default function About() {
             {about.lead}
           </p>
 
+          {about.leadContinued && (
+            <p className="mt-4 text-lg leading-[1.6] text-white/80">
+              {about.leadContinued}
+            </p>
+          )}
+
+          {/* Core interests */}
+          {about.interests && about.interests.length > 0 && (
+            <div className="mt-8">
+              <h3 className="label mb-4 text-lime">Core interests</h3>
+              <ul className="flex flex-wrap gap-2">
+                {about.interests.map((interest) => (
+                  <li key={interest} className="tag">
+                    {interest}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="rule my-10" />
 
           <div className="space-y-10">

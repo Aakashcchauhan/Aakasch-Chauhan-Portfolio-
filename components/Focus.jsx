@@ -6,7 +6,7 @@ export default function Focus() {
     <Section id="focus">
       <div className="flex flex-wrap items-end justify-between gap-8">
         <div>
-          <Eyebrow index="07">Current focus</Eyebrow>
+          <Eyebrow index="08">Current focus</Eyebrow>
           <h2 className="display-lg">
             <span className="block text-white">What I&apos;m on</span>
             <span className="block text-lime">Right now.</span>

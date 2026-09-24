@@ -45,7 +45,7 @@ const code = [
 export default function CodeWindow() {
   return (
     <div className="overflow-hidden rounded-lg border border-hairline bg-[#0d0d0d] shadow-[0_30px_80px_-40px_rgba(204,255,0,0.35)]">
-      <div className="flex items-center justify-between border-b border-hairline bg-white/[0.03] px-4 py-3">
+      <div className="flex items-center justify-between border-b border-hairline bg-white/[0.03] px-4 py-3https://www.linkedin.com/in/aakash-chauhan-/ this is my ">
         <div className="flex items-center gap-2.5">
           <span className="h-2.5 w-2.5 rounded-full bg-lime" />
           <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
